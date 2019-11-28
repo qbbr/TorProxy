@@ -2,6 +2,10 @@
 
 Simple PHP cURL wrapper for Tor network.
 
+[![Latest Stable Version](https://poser.pugx.org/qbbr/tor-proxy/v/stable)](https://packagist.org/packages/qbbr/tor-proxy)
+[![Total Downloads](https://poser.pugx.org/qbbr/tor-proxy/downloads)](https://packagist.org/packages/qbbr/tor-proxy)
+[![License](https://poser.pugx.org/qbbr/tor-proxy/license)](https://packagist.org/packages/qbbr/tor-proxy)
+
 ## requirements
 
  * php-curl

@@ -5,7 +5,6 @@
     "keywords": ["tor", "curl", "proxy", "qbbr"],
     "homepage": "https://github.com/qbbr/TorProxy",
     "license": "MIT",
-    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Sokolov Innokenty",

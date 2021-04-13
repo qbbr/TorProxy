@@ -23,7 +23,7 @@ final class TorProxyTest extends TestCase
             $this->fail($exception->getMessage());
         }
 
-        $this->assertTrue(false !== filter_var($output, FILTER_VALIDATE_IP));
+        $this->assertTrue(false !== filter_var($output, \FILTER_VALIDATE_IP));
     }
 
     public function testChangeTorCircuits()

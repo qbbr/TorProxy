@@ -22,25 +22,25 @@ class TorProxy
     public function __construct(string $torSocks5Proxy = 'socks5://127.0.0.1:9050')
     {
         $this->ch = curl_init();
-        curl_setopt($this->ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
-        curl_setopt($this->ch, CURLOPT_PROXY, $torSocks5Proxy);
-        curl_setopt($this->ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($this->ch, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($this->ch, CURLOPT_HEADER, false);
+        curl_setopt($this->ch, \CURLOPT_PROXYTYPE, \CURLPROXY_SOCKS5);
+        curl_setopt($this->ch, \CURLOPT_PROXY, $torSocks5Proxy);
+        curl_setopt($this->ch, \CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($this->ch, \CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($this->ch, \CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($this->ch, \CURLOPT_HEADER, false);
     }
 
     public function setUserAgent(string $userAgent)
     {
-        curl_setopt($this->ch, CURLOPT_USERAGENT, $userAgent);
+        curl_setopt($this->ch, \CURLOPT_USERAGENT, $userAgent);
     }
 
     public function useCookie(string $cookieFilePath = null)
     {
         $cookieFilePath = $cookieFilePath ?? tempnam(sys_get_temp_dir(), 'cookie_').'.txt';
-        curl_setopt($this->ch, CURLOPT_COOKIESESSION, true);
-        curl_setopt($this->ch, CURLOPT_COOKIEJAR, $cookieFilePath);
-        curl_setopt($this->ch, CURLOPT_COOKIEFILE, $cookieFilePath);
+        curl_setopt($this->ch, \CURLOPT_COOKIESESSION, true);
+        curl_setopt($this->ch, \CURLOPT_COOKIEJAR, $cookieFilePath);
+        curl_setopt($this->ch, \CURLOPT_COOKIEFILE, $cookieFilePath);
     }
 
     public function getCh()
@@ -54,10 +54,10 @@ class TorProxy
     public function curl(string $url, array $postParameter = null): string
     {
         if (null !== $postParameter) {
-            curl_setopt($this->ch, CURLOPT_POSTFIELDS, http_build_query($postParameter));
+            curl_setopt($this->ch, \CURLOPT_POSTFIELDS, http_build_query($postParameter));
         }
 
-        curl_setopt($this->ch, CURLOPT_URL, $url);
+        curl_setopt($this->ch, \CURLOPT_URL, $url);
 
         $html = curl_exec($this->ch);
 
